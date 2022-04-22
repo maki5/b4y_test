@@ -5,8 +5,6 @@ import (
 	"github.com/maki5/b4y_test/controllers"
 )
 
-func RegisterRoutes(router *gin.RouterGroup) {
-	cacheController := controllers.NewCacheController()
-
-	router.GET("/", cacheController.GetCache)
+func RegisterCacheRoutes(router *gin.RouterGroup, ctrl controllers.CacheController) {
+	router.GET("/:key", ctrl.GetCache)
 }
